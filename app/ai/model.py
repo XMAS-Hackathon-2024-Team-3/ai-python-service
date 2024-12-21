@@ -7,13 +7,21 @@ Original file is located at
     https://colab.research.google.com/drive/1oL238YhwfTRptYLGnEoJoyT9elWSZIk8
 """
 
+import os
 import pandas as pd
+from pydantic import TypeAdapter
 from sklearn.preprocessing import StandardScaler
 import joblib
 import json
 
-kmeans_model = joblib.load('kmeans_model.pkl')
-scaler = joblib.load('scaler.pkl')
+from app.api.dto.provider import ProviderDTO
+
+current_file_path = os.path.dirname(os.path.abspath(__file__))
+
+
+kmeans_model = joblib.load(os.path.join(current_file_path, 'kmeans_model.pkl'))
+scaler = joblib.load(os.path.join(current_file_path, 'scaler.pkl'))
+
 
 def predict_priority(json_data):
 
@@ -50,5 +58,6 @@ def predict_priority(json_data):
         'COMMISSION': 'commission'
     })
 
-    result = df[['id', 'conversion', 'avg_time', 'limit_min', 'limit_max']].to_dict(orient='records')
+    result = df[['id', 'conversion', 'avg_time',
+                 'limit_min', 'limit_max']].to_dict(orient='records')
     return json.dumps(result)
