@@ -9,12 +9,9 @@ Original file is located at
 
 import os
 import pandas as pd
-from pydantic import TypeAdapter
-from sklearn.preprocessing import StandardScaler
 import joblib
 import json
 
-from app.api.dto.provider import ProviderDTO
 
 current_file_path = os.path.dirname(os.path.abspath(__file__))
 
