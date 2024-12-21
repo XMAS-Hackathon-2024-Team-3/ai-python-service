@@ -55,6 +55,6 @@ def predict_priority(json_data):
         'COMMISSION': 'commission'
     })
 
-    result = df[['id', 'conversion', 'avg_time',
+    result = df[['id', 'conversion', 'avg_time', 'commission',
                  'limit_min', 'limit_max']].to_dict(orient='records')
-    return json.dumps(result)
+    return result
