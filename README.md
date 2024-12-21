@@ -10,7 +10,11 @@ docker run -e PORT=3000 -p 3000:3000 python-ai-service
 
 ## API
 
-[Swagger](localhost:3000/docs)
+Swagger
+
+```
+localhost:YOUR_PORT/docs
+```
 
 ```
 
