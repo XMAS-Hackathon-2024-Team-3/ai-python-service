@@ -10,8 +10,6 @@ Original file is located at
 import os
 import pandas as pd
 import joblib
-import json
-
 
 current_file_path = os.path.dirname(os.path.abspath(__file__))
 

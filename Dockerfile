@@ -21,4 +21,4 @@ COPY ./app /app/app
 EXPOSE $PORT
 
 # Command to run the application using environment variables
-CMD uvicorn app.main:app --host $HOST --port $PORT		
+CMD uvicorn app.main:app --host $HOST --port $PORT --log-level $LOGLEVEL		
